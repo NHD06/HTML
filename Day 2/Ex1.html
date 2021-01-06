@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style media="screen">
+        .container{
+            margin-top: 10%;
+        }
+        .card{
+            width: 40%;
+            margin: 0 auto;
+        }
+        .card .card-title{
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: #fff;
+        }
+        .btn{
+            margin-bottom: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="card" style="border-radius: 10px; border: solid #007BFF 1px">
+        <div class="card-block">
+          <div class="card-title bg-primary">Giải Phương Trình Bậc 1</div>
+          <div class="btn btn-success" id="A">Nhập giá trị A</div>
+          <div class="btn btn-success" id="B">Nhập giá trị B</div>
+          <div class="btn btn-success" id="result">In kết quả</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 20px">
+          <table class="table table-bordered" style="margin-bottom: 0px">
+            <thead class="bg-secondary">
+              <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>Kết quả</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+      </div>
+    </div>
+    <script type="text/javascript">
+        $('#A').click(function () {
+            a = prompt("Nhập giá trị A");
+        })
+        $('#B').click(function () {
+            b = prompt("Nhập giá trị B");
+        })
+        $('#result').click(function () {
+            x = -b / a;
+            $('#tbody').append(`<tr>
+                                    <td>${a}</td>
+                                    <td>${b}</td>
+                                    <td>${x}</td>
+                                </tr>`)
+        })
+    </script>
+</body>
+</html>

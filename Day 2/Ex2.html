@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="Ex2.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <ul class="nav nav-tab">
+      <div class="container d-flex">
+        <li class="nav-item">
+          <a href="" class="nav-link border-right"><i class="fas fa-home"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Cười</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Thơ</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right" style="color: blue">Truyện Ma</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Truyện Ngắn</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right" style="color: blue; word-spacing: -2px;">Truyện Teen</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Tiểu Thuyết</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right" style="color: red">Truyện Gay</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right" style="color: red">Truyện +</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link border-right">Tâm Sự</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link" style="color: red">Tìm Truyện</a>
+        </li>
+      </div>
+    </ul>
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="list-group" style="border-radius: 0px">
+              <li class="list-group-item bg-primary">Đăng Truyện Ngắn</li>
+              <li class="list-group-item bg-info">Đăng Truyện Teen</li>
+              <li class="list-group-item bg-secondary">Đăng Tiểu Thuyết</li>
+              <li class="list-group-item bg-danger">Đăng Xuyển Không</li>
+              <li class="list-group-item bg-danger">Đăng Truyện Gay</li>
+              <li class="list-group-item bg-primary">Đăng Truyện LES</li>
+              <li class="list-group-item bg-primary">Đăng Truyện 16+</li>
+              <li class="list-group-item bg-dark">Đăng Truyện Ma</li>
+              <li class="list-group-item bg-danger">Đăng Đam Mỹ</li>
+              <li class="list-group-item bg-success">Truyện Mới</li>
+              <li class="list-group-item bg-secondary">Truyện Full</li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <div class="row" id="fill">
+              <!-- <div class="item col-md-3">
+                <div class="image">
+                  <img src="image/text.jpg">
+                  <div class="view">
+                    <span><big>10</big> Luot xem</span>
+                  </div>
+                  <div class="vote">
+                    <span>0 diem Vote</span>
+                  </div>
+                </div>
+                <div class="title">
+                  <span></span>
+                </div>
+              </div> -->
+            </div>
+            <table>
+                <tr>
+                  <td>Tiêu đề:</td>
+                  <td><input type="text" id="title"></td>
+                </tr>
+                <tr>
+                  <td>Link hình ảnh:</td>
+                  <td><input type="text" id="img"></td>
+                </tr>
+                <tr>
+                  <td>Điểm vote:</td>
+                  <td><input type="number" id="vote"></td>
+                </tr>
+                <tr>
+                  <td>Lượt xem:</td>
+                  <td><input type="number" id="view"></td>
+                </tr>
+                <tr class="more">
+                  <td><button type="button" class="btn btn-danger" id="ok">Thêm</button></td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    var json = localStorage.getItem('dataList_LS')
+    var dataList = JSON.parse(json)
+
+    if (dataList == null) {
+      dataList = [];
+    }
+
+    $(function () {
+      show();
+    })
+
+    $('#ok').click(function () {
+      title = $('#title').val();
+      img = $('#img').val();
+      vote = $('#vote').val();
+      view = $('#view').val();
+      var data = {
+        'title': title,
+        'img': img,
+        'vote': vote,
+        'view': view
+      }
+      dataList.push(data);
+      var json = JSON.stringify(dataList)
+      localStorage.setItem('dataList_LS', json)
+      show();
+    })
+
+    function show() {
+      $('#fill').html('')
+      for (var i = 0; i < dataList.length; i++) {
+        $('#fill').append(`<div class="item col-md-3">
+                            <div class="image">
+                              <img src="${dataList[i].img}">
+                              <div class="view">
+                                <span><big>${dataList[i].view}</big> Lượt xem</span>
+                              </div>
+                              <div class="vote">
+                                <span>${dataList[i].vote} điểm Vote</span>
+                              </div>
+                            </div>
+                            <div class="title">
+                              <span>${dataList[i].title}</span>
+                            </div>
+                          </div>`)
+      }
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+.nav-tab{
+  background-color: #75b4d9;
+  border-bottom: solid #377599 2px;
+}
+
+.nav-tab .container .nav-item a{
+  color: #fff;
+}
+
+.main .container .list-group .list-group-item {
+  margin-top: 8px;
+  text-align: center;
+  color: #fff;
+}
+
+.image{
+  position: relative;
+  border: 1px solid #f2f2f2;
+  overflow: hidden;
+  height: 230px;
+}
+
+.image img{
+  max-width: 100%;
+}
+
+.item{
+  margin-top: 10px;
+}
+
+.view{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #111;
+  opacity: .65;
+  color: #fff;
+  font-size: 18px;
+}
+
+.vote{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #111;
+  opacity: .65;
+  color: #fff;
+  text-align: center;
+}
+
+.title{
+  background-color: #111;
+  opacity: .65;
+  color: #fff;
+  text-align: center;
+  height: 60px;
+  font-size: 16px;
+}
+
+tr td{
+  color: red;
+}
+
+tr td input{
+  border: solid rgb(235, 74, 74) 4px;
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 120%;
+}
+
+.more button.btn{
+  margin-top: 20px;
+  margin-left: 130%;
+}
